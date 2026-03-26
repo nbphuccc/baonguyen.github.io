@@ -1,32 +1,169 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  line-height: 1.6;
+  background: #f9fafb;
+  color: #111;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* old Edge */
 }
 
 header {
-  background: #333;
+  background: #111;
   color: white;
-  padding: 2rem;
   text-align: center;
+  padding: 3rem 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.links a {
+  color: #ccc;
+  margin: 0 10px;
+  text-decoration: none;
 }
 
 section {
-  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem 1rem;
 }
 
 h2 {
   border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
 }
 
-.project {
-  margin-top: 1rem;
+.card {
+  background: white;
   padding: 1rem;
-  border: 1px solid #ddd;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between; /* university left, year right */
+  align-items: center;            /* vertical align */
+}
+
+.card-year {
+  font-weight: normal;            /* optional: lighter than title */
+  font-size: 0.9em;               /* optional: smaller text */
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
 }
 
 footer {
   text-align: center;
-  padding: 1rem;
-  background: #f4f4f4;
+  padding: 2rem;
+  background: #111;
+  color: white;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clickable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hidden-content {
+  display: none;
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+.course-list {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+
+.course-list li {
+  margin-bottom: 4px;
+}
+
+.clickable-course {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.sub-courses {
+  display: none;
+  margin-top: 5px;
+  padding-left: 1.2rem;
+  color: #555;
+}
+
+.course-title {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.course-title::after {
+  content: " ▼";
+  font-size: 0.8em;
+}
+
+/* when open */
+.course-title.open::after {
+  content: " ▲";
+}
+
+.course-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.course-list a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.toggle-courses {
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.toggle-courses:hover {
+  text-decoration: underline;
+}
+
+/* optional arrow toggle */
+.toggle-courses.open::after {
+  content: " ▲";
+}
+
+.toggle-courses::after {
+  content: " ▼";
+}
+
+.no-link-style {
+  text-decoration: none;
+  color: inherit;
+}
+
+.section-content {
+  overflow: hidden;
+  transition: height 0.4s ease;
+  height: 0;  /* collapsed by default */
+}
+
+.toggle-section {
+  cursor: pointer;
+}
+
+.toggle-section:hover {
+  text-decoration: underline;
 }
