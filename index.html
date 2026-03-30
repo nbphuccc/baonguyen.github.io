@@ -18,12 +18,38 @@
   </header>
 
   <section>
-    <h2>About</h2>
-    <p>
+  <h2 class="toggle-section">About</h2>
+
+  <div class="section-content">
+    <!-- Short Story -->
+    <p class="toggle-courses">Short Story</p>
+    <div class="hidden-content">
+      <p>
       First-generation immigrant and transfer student studying Computer Science at the Allen School of Computer Science and Engineering.
-      I love building softwares that directly benefits the qualify of life of people around me, and I am passionate about learning new technologies and improving my skills as a software engineer.
-    </p>
-  </section>
+      I love building software that directly benefits the quality of life of people around me, and I am passionate about learning new technologies and improving my skills as a software engineer.      </p>
+    </div>
+
+    <!-- Long Story -->
+    <p class="toggle-courses">Long Story</p>
+    <div class="hidden-content">
+      <p>      
+        I was trained as a traditional mechatronics in Vietnam, and I've always liked things that are on the logical side. During that time, I took one programming class that was in C, and I immediately came to love it. One of the assignments in that class was
+        actually verifying who wins in a Caro (5-in-a-row) match, something which I've extended to become a full web-app as one of my projects. After this, I did various projects on my own, all in C, which is not at all optimal for that sort of things.
+        But looking back, that was the time that I had the most fun learning to code and writing programs with O(n^6) time complexity :)))) 
+      </p>
+      <p>
+        My degree progression was significantly delayed due to the pandemic, and as I was about to graduate, the paperworks was finalized for my family's immigration to the US. After the move, I realize that continuing with my education
+        by transferring credits was almost impossible with the way the US education system works. I then faced with a choice between starting over in Mechatronics again, or making the switch to something I've always wanted. It took me a whole day to decide
+        but the rest was easy once I actually took the classes and realized how much I enjoyed it.
+      </p>
+      <p>
+        The way so far has been hard. Navigating a new way of life, a new system of education was hard, transferring was hard, and getting used to UW was hard. All of it was fun. I have met a lot of wonderful people, got a lot of help along the way 
+        and accomplished a lot. My favourite part is learning and getting to build some cool things that is hopefully of help to people, and now I hope that I get to do that professionally.
+      </p>
+    </div>
+
+  </div>
+</section>
 
   <section>
     <h2 class="toggle-section">Education</h2>
@@ -41,10 +67,10 @@
 
   <p>
     <a href="https://www.cs.washington.edu/" class="no-link-style" target="_blank">
-      B.S. Computer Science, Data Science Minor
+      B.S. Computer Science, Data Science Option
     </a>
   </p>
-  <p>Expected Graduation: December 2026</p>
+  <p>Expected Graduation Date: December 2026</p>
   <p>GPA: 3.7</p>
 
   <p class="toggle-courses">Relevant Courses</p>
@@ -161,7 +187,7 @@
         Lê Hồng Phong High School
       </a>
     </h3>
-    <span class="card-year">2014–2017</span> <!-- replace with actual years -->
+    <span class="card-year">2014–2017</span>
   </div>
 </div>
 
@@ -173,7 +199,7 @@
         Trần Đại Nghĩa High School
       </a>
     </h3>
-    <span class="card-year">2010–2014</span> <!-- replace with actual years -->
+    <span class="card-year">2010–2014</span>
   </div>
 </div>
 
@@ -190,6 +216,14 @@
   <p>Real-time 2-player Caro (Gomoku) game.</p>
   <a href="https://caro-app.onrender.com" target="_blank">Live</a> |
   <a href="https://github.com/nbphuccc/caro-app" target="_blank">Code</a>
+
+  <!-- Motivation -->
+  <p class="toggle-courses">Motivation</p>
+  <div class="hidden-content">
+    <p>When I was growing up, this game is traditionally played on a gridded notebook. I have spent many hours goading my deskmates into playing this with me while we are supposed to pay attention to the blackboard. It has always been a dream of mine way before learning how to
+      code to create an online version so that I can play with my friends anywhere and anytime.
+    </p>
+  </div>
 
   <p class="toggle-courses">Demo</p>
   <div class="hidden-content">
@@ -231,6 +265,17 @@
   <a href="https://degree-auditor-frontend.onrender.com" target="_blank">Live</a> |
   <a href="https://github.com/nbphuccc/degree-auditor" target="_blank">Code</a>
 
+  <!-- Motivation -->
+  <p class="toggle-courses">Motivation</p>
+  <div class="hidden-content">
+    <p>I moved to the US in June 2022 and immediately enrolled at South Seattle that September. One of the most difficult aspects of the transition was not the classes themselves, but understanding which classes to take so that I can have a smooth transition 
+      into the University of Washington. In the end, I had to make multiple appointments with my advisors and did a lot of self-research to understand the degree requirements. After transferring to UW, I found out that they have the Degree Audit Reporting System (DARS) 
+      that automatically tracks your degree progress and checks if your planned courses will satisfy the requirements. 
+      I wish I had something like that when I was at South Seattle, so I decided to build this degree auditor to help students at South Seattle have a better understanding of their degree progress and make informed decisions about their course selection.
+      I initially wanted to build a automatic optimal course planner, but apparently degree planning with course availbility is NP-hard, so I settled for a verifier.
+    </p>
+  </div>
+
   <p class="toggle-courses">Demo</p>
   <div class="hidden-content">
 
@@ -270,6 +315,15 @@
   <p>Mobile app for pet owner communities, focusing on community discussion and playdate scheduling.</p>
   <a href="https://github.com/nbphuccc/PurrfectMatch" target="_blank">Code</a>
 
+  <!-- Motivation -->
+  <p class="toggle-courses">Motivation</p>
+  <div class="hidden-content">
+    <p>Seattle is a cold city, and the phenomenon called "Seattle Freeze" is definitely real, especially as an immigrant here. To meet people based on common interests, pets is an easy ice breaker that can help connect people in the community.
+      So far, the main methods of connecting has been posting of various disconnected groups on Facebook, Reddit, or even Craigslist.
+      PurrfectMatch aims to create a platform for pet owners to connect, share experiences, and especially organize playdates, fostering a sense of community and support among pet lovers.
+    </p>
+  </div>
+
   <p class="toggle-courses">Demo</p>
   <div class="hidden-content">
 
@@ -298,8 +352,19 @@
 
     <div class="card">
   <h3>Voice Translation Prototype</h3>
-  <p>Real-time lecture translation with an optional glossary feature to target domain-specific terminologies.</p>
+  <p>Real-time voice streaming translator with an optional glossary that provides a translated transcript.</p>
   <a href="https://github.com/nbphuccc/live-translation-prototype" target="_blank">Code</a>
+
+  <!-- Motivation -->
+  <p class="toggle-courses">Motivation</p>
+  <div class="hidden-content">
+    <p>The language barrier is one of the most significant challenges in the immigrant community in pursuing higher educations. I have personally known many academically gifted students who were almost intimidated to take classes in the US, for fear that they 
+      would be wasting their time when they can be helping their family financially. At South Seattle, there wasnt much to be done since all the lectures I attended were in-person. However, when I transferred to UW, I was pleasantly surprised to find out that
+      most of the lectures are streamed live via Zoom. By having a transcription and translation pipeline, students can have the option to read along with the lecture in their native language, which can help them better understand the material while retain the 
+      sense of community by attending the lecture live. The glossary feature is also important because it can help students understand the technical terms that are commonly used in CS lectures, which can be a major barrier for non-native speakers.
+      Furthermore, Zoom recordings has already generated a transcript, which means that furhter plans for a Zoom intergration might even skip the transcription step!
+    </p>
+  </div>
 
   <p class="toggle-courses">Demo</p>
   <div class="hidden-content">
@@ -323,15 +388,6 @@
 
   </div>
 </section>
-
-  <section>
-    <h2>Skills</h2>
-    <p>
-      Java, Python, TypeScript, C<br/>
-      React, Node.js, Express, Socket.io, WebRTC<br/>
-      SQLite, Firebase
-    </p>
-  </section>
 
   <section>
   <h2 class="toggle-section">Experience</h2>
