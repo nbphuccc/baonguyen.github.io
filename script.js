@@ -32,10 +32,24 @@ document.querySelectorAll(".course-list a").forEach(link => {
 document.querySelectorAll(".toggle-courses").forEach(toggle => {
   toggle.addEventListener("click", () => {
     const content = toggle.nextElementSibling;
+    const isOpen = content.style.height && content.style.height !== "0px";
 
-    const isOpen = content.style.display === "block";
+    if (isOpen) {
+      // collapse
+      content.style.height = content.scrollHeight + "px"; // set current height first
+      requestAnimationFrame(() => {
+        content.style.height = "0";
+      });
+    } else {
+      // expand
+      content.style.height = content.scrollHeight + "px";
 
-    content.style.display = isOpen ? "none" : "block";
+      // optional: reset to auto after animation
+      setTimeout(() => {
+        content.style.height = "auto";
+      }, 300);
+    }
+
     toggle.classList.toggle("open", !isOpen);
   });
 });
@@ -57,6 +71,33 @@ document.querySelectorAll(".toggle-section").forEach(toggle => {
         content.style.height = "auto"; // let it resize naturally
         content.removeEventListener("transitionend", handler);
       });
+    }
+  });
+});
+
+document.querySelectorAll(".course-title").forEach(toggle => {
+  toggle.addEventListener("click", () => {
+    const content = toggle.nextElementSibling; // .sub-courses
+
+    if (content.style.height && content.style.height !== "0px") {
+      // Section is open → collapse
+      // Collapse
+content.style.height = content.scrollHeight + "px"; // fix current height
+
+// Force the browser to recalc styles immediately (reflow)
+content.offsetHeight; // read a layout property to flush the change
+
+// Then collapse
+content.style.height = "0px";
+      toggle.classList.remove("open"); // arrow rotation
+    } else {
+      // Section is closed → expand
+      content.style.height = content.scrollHeight + "px"; // animate expand
+      content.addEventListener("transitionend", function handler() {
+        content.style.height = "auto"; // allow natural resizing
+        content.removeEventListener("transitionend", handler);
+      });
+      toggle.classList.add("open"); // arrow rotation
     }
   });
 });
