@@ -32,25 +32,27 @@ document.querySelectorAll(".course-list a").forEach(link => {
 document.querySelectorAll(".toggle-courses").forEach(toggle => {
   toggle.addEventListener("click", () => {
     const content = toggle.nextElementSibling;
-    const isOpen = content.style.height && content.style.height !== "0px";
+    const isOpen = content.classList.contains("open");
 
     if (isOpen) {
       // collapse
-      content.style.height = content.scrollHeight + "px"; // set current height first
+      content.style.height = content.scrollHeight + "px"; // lock height
       requestAnimationFrame(() => {
-        content.style.height = "0";
+        content.style.height = "0px";
+        content.classList.remove("open"); // remove visual styles immediately
       });
     } else {
       // expand
+      content.classList.add("open");       // add visual styles first
       content.style.height = content.scrollHeight + "px";
 
-      // optional: reset to auto after animation
-      setTimeout(() => {
-        content.style.height = "auto";
-      }, 300);
+      content.addEventListener("transitionend", function handler() {
+        content.style.height = "auto";     // allow natural height
+        content.removeEventListener("transitionend", handler);
+      });
     }
 
-    toggle.classList.toggle("open", !isOpen);
+    toggle.classList.toggle("open", !isOpen); // arrow rotation or styling
   });
 });
 

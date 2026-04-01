@@ -1,11 +1,21 @@
 body {
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
   background: #f9fafb;
+
   user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none;     /* old Edge */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  /* ADD THESE */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 h1, h2, h3 {
@@ -51,8 +61,20 @@ h2 {
 
 .card-header {
   display: flex;
-  justify-content: space-between; /* university left, year right */
-  align-items: center;            /* vertical align */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.card-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
 }
 
 .card-year {
@@ -72,6 +94,12 @@ footer {
   color: white;
 }
 
+.footer-logo {
+  height: 40px;        /* adjust size */
+  width: auto;
+  margin-bottom: 0.5rem; /* spacing above the copyright */
+}
+
 .clickable {
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -85,16 +113,35 @@ footer {
 .hidden-content {
   overflow: hidden;
   height: 0;              /* collapsed */
-  transition: height 0.3s ease;
+  transition: height 0.3s ease, padding 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   margin-top: 0.5rem;
+
+  /* collapsed state: no visible box */
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 12px;
+}
+
+.hidden-content.open {
+  height: auto;           /* JS will handle actual pixel height during transition */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #eef2f7;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
 .course-list {
-  margin-top: 0.5rem;
+  margin-top: 0rem;
   padding-left: 1.2rem;
 }
 
 .course-list li {
+  margin-top: 4px;
   margin-bottom: 4px;
 }
 
